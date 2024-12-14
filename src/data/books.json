@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "price": 19.99,
+    "stock": 10,
+    "description": "A revolutionary guide to building better habits and breaking bad ones. Discover practical strategies to transform your life, one small habit at a time.",
+    "cover_image": "https://m.media-amazon.com/images/I/91bYsX41DVL.jpg"
+  },
+  {
+    "id": 2,
+    "title": "The Subtle Art of Not Giving a F*ck",
+    "author": "Mark Manson",
+    "price": 15.99,
+    "stock": 5,
+    "description": "A no-nonsense guide to focusing on what truly matters in life, delivered with humor and brutal honesty. Learn to embrace limitations and find true happiness.",
+    "cover_image": "https://m.media-amazon.com/images/I/71QKQ9mwV7L.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Sapiens: A Brief History of Humankind",
+    "author": "Yuval Noah Harari",
+    "price": 21.5,
+    "stock": 7,
+    "description": "Explore the fascinating history of humankind, from the Stone Age to the modern era. A thought-provoking journey through science, culture, and evolution.",
+    "cover_image": "https://images-na.ssl-images-amazon.com/images/I/713jIoMO3UL.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Educated: A Memoir",
+    "author": "Tara Westover",
+    "price": 18.0,
+    "stock": 12,
+    "description": "An inspiring memoir about the transformative power of education. Follow Tara's journey from a strict and abusive upbringing to earning a PhD from Cambridge.",
+    "cover_image": "https://m.media-amazon.com/images/I/81WojUxbbFL.jpg"
+  },
+  {
+    "id": 5,
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "price": 16.0,
+    "stock": 8,
+    "description": "A timeless tale of self-discovery and following one's dreams. Join Santiago on a journey through deserts, challenges, and the pursuit of a great treasure.",
+    "cover_image": "https://m.media-amazon.com/images/I/71aFt4+OTOL.jpg"
+  }
+]

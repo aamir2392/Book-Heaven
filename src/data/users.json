@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "email": "john@example.com",
+    "password": "password123",
+    "is_admin": false,
+    "profile_photo": "https://randomuser.me/api/portraits/men/1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Admin User",
+    "email": "admin@example.com",
+    "password": "admin123",
+    "is_admin": true,
+    "profile_photo": "https://randomuser.me/api/portraits/men/2.jpg"
+  }
+]
