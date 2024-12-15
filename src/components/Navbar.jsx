@@ -19,7 +19,9 @@ const Navbar = ({ currentUser }) => {
         {currentUser ? (
           <>
             {currentUser.is_admin ? (
-              <Link to="/admin">Dashboard</Link>
+              <Link to="/admin" className="text-white">
+                Dashboard
+              </Link>
             ) : (
               <Link to="/" className="text-white">
                 Home

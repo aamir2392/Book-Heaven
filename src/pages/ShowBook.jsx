@@ -1,12 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import books from "../data/books.json";
+import staticBooks from "../data/books.json";
 
 const ShowBook = () => {
   const { id } = useParams();
-  const book = books.find((b) => b.id === parseInt(id));
+  const [allBooks, setAllBooks] = useState([]);
+  const [book, setBook] = useState(null);
 
-  if (!book) return <p className="text-center mt-8">Book not found!</p>;
+  useEffect(() => {
+    // Retrieve books from localStorage
+    const storedBooks = JSON.parse(localStorage.getItem("books")) || [];
+    // Combine static and stored books
+    const combinedBooks = [...staticBooks, ...storedBooks];
+    setAllBooks(combinedBooks);
+
+    // Find the book by ID
+    const foundBook = combinedBooks.find((b) => b.id.toString() === id);
+    setBook(foundBook);
+  }, [id]);
+
+  if (!book)
+    return (
+      <div className="h-screen flex items-center justify-center">
+        <p className="text-2xl font-bold mt-8">Book not found!</p>
+      </div>
+    );
 
   return (
     <div className="p-8 min-h-screen bg-gray-100 overflow-y-hidden">
@@ -15,7 +33,7 @@ const ShowBook = () => {
           <img
             src={book.cover_image}
             alt={book.title}
-            className=" w-full md:w-1/3 object-cover"
+            className="w-full md:w-1/3 object-cover"
           />
           <div className="p-6">
             <h1 className="text-4xl font-bold text-gray-800">{book.title}</h1>
