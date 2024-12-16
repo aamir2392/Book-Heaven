@@ -49,13 +49,13 @@ const Navbar = ({ currentUser }) => {
                   </button>
                 </div>
               )}
-              {/* <div className="absolute mt-2 right-0 bg-white shadow-lg rounded p-2">
-                <p className="text-black">{currentUser.name}</p>
-              </div> */}
             </div>
           </>
         ) : (
-          <Link to="/login" className="text-white">
+          <Link
+            to="/login"
+            className="text-white font-bold border-2 px-3 py-1 rounded-full shadow-md hover:bg-purple-600"
+          >
             Login
           </Link>
         )}

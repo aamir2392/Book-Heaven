@@ -1,23 +1,41 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import staticBooks from "../data/books.json";
 
 const ShowBook = () => {
   const { id } = useParams();
-  const [allBooks, setAllBooks] = useState([]);
   const [book, setBook] = useState(null);
+  const [quantity, setQuantity] = useState(1);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Retrieve books from localStorage
     const storedBooks = JSON.parse(localStorage.getItem("books")) || [];
     // Combine static and stored books
     const combinedBooks = [...staticBooks, ...storedBooks];
-    setAllBooks(combinedBooks);
 
     // Find the book by ID
     const foundBook = combinedBooks.find((b) => b.id.toString() === id);
     setBook(foundBook);
   }, [id]);
+
+  const handleAddToCart = () => {
+    if (quantity <= 0 || quantity > book.stock) {
+      alert("Invalid quantity. Please enter a valid amount");
+      return;
+    }
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existingItem = cart.find((item) => item.id === book.id);
+
+    if (existingItem) {
+      existingItem.quantity += quantity;
+    } else {
+      cart.push({ ...book, quantity });
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Book added to cart");
+    navigate("/cart");
+  };
 
   if (!book)
     return (
@@ -43,6 +61,28 @@ const ShowBook = () => {
             <p className="text-gray-800 mt-4">
               <span className="font-bold">Stock:</span> {book.stock}
             </p>
+            <div className="mt-4">
+              <label htmlFor="quantity" className="block mb-3 text-gray-600">
+                Quantity:
+              </label>
+              <input
+                className="outline-none border border-gray-500 rounded px-3 py-1 w-full"
+                type="number"
+                value={quantity}
+                onChange={(e) => {
+                  const value = parseInt(e.target.value, 10);
+                  if (!isNaN(value) && value >= 0) {
+                    setQuantity(value);
+                  }
+                }}
+              />
+            </div>
+            <button
+              onClick={handleAddToCart}
+              className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 font-bold w-full rounded-full"
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>
